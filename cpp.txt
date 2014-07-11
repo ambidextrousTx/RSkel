@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+
+void my_function(int arg) {
+	// do something with the argument
+}
+
+int main(void) {
+	// do something here
+}
