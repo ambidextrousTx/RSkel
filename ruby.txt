@@ -1,0 +1,10 @@
+require
+
+class MyClass
+    def initialize
+        @param
+    end
+end
+
+obj = MyClass.new
+# do something
