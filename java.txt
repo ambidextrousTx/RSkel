@@ -1,0 +1,10 @@
+import
+
+class MyClass {
+	private void function(arguments) {
+    }
+    
+    public static void main(String[] args) {
+    	// Do something
+    }
+}
