@@ -6,6 +6,10 @@ require_relative 'ruby'
 language = gets.chomp.downcase
 supported = ['ruby', 'java', 'python', 'c++']
 
+def valid_datatype(datatype)
+  return ['int', 'double', 'float', 'string', 'String', 'bool', 'boolean', 'char'].include? datatype.chomp
+end
+
 if supported.include? language
   puts 'Supported' 
   if language.eql? 'java'
@@ -13,6 +17,10 @@ if supported.include? language
     classname = gets
     puts 'Enter the return type of a method:'
     returntype = gets
+    until valid_datatype(returntype) == true
+      puts 'Enter the return type of a method:'
+      returntype = gets
+    end
     puts 'Enter the name of the method above:'
     methodname = gets
     java = Java.new(classname, returntype, methodname)
@@ -42,6 +50,10 @@ if supported.include? language
     classname = gets
     puts 'Enter the return type of a method:'
     returntype = gets
+    until valid_datatype(returntype) == true
+      puts 'Enter the return type of a method:'
+      returntype = gets
+    end
     puts 'Enter the name of the method above:'
     methodname = gets
     cpp = CPP.new(classname, returntype, methodname)
