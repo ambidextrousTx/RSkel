@@ -1,10 +1,25 @@
 class Ruby
-  def initialize
+  def initialize(classname, methodname)
+    @classname = classname.chomp
+    @methodname = methodname.chomp
   end
 
   def generate
-    stub = File.open('ruby.txt').read
-    puts stub
+    puts
+    puts 'require *'
+    puts
+    puts "class #{@classname}"
+    puts "  def initialize(args)"
+    puts "    # Do something"
+    puts "  end"
+    puts
+    puts "  def #{@methodname}(self, args)"
+    puts '    # Do something'
+    puts "  end"
+    puts "end"
+    puts
+    puts "myvar = #{@classname}.new"
+    puts
   end
 end
 

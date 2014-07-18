@@ -28,7 +28,15 @@ if supported.include? language
     puts 'Here is the generated stub:'
     python.generate
   end
+  if language.eql? 'ruby'
+    puts 'Enter the name of the main class:'
+    classname = gets
+    puts 'Enter the name of a method:'
+    methodname = gets
+    ruby = Ruby.new(classname, methodname)
+    puts 'Here is the generated stub:'
+    ruby.generate
+  end
 end
 
 CPP.new.generate if language.eql? 'c++'
-Ruby.new.generate if language.eql? 'ruby'
