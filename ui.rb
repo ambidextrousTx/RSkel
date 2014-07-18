@@ -37,6 +37,15 @@ if supported.include? language
     puts 'Here is the generated stub:'
     ruby.generate
   end
+  if language.eql? 'c++'
+    puts 'Enter the name of the main class:'
+    classname = gets
+    puts 'Enter the return type of a method:'
+    returntype = gets
+    puts 'Enter the name of the method above:'
+    methodname = gets
+    cpp = CPP.new(classname, returntype, methodname)
+    puts 'Here is the generated stub:'
+    cpp.generate
+  end
 end
-
-CPP.new.generate if language.eql? 'c++'
