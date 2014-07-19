@@ -10,6 +10,11 @@ def valid_datatype(datatype)
   return ['int', 'double', 'float', 'string', 'String', 'bool', 'boolean', 'char'].include? datatype.chomp
 end
 
+def valid_name?(name)
+  return !(name.include? '*')
+end
+
+
 if supported.include? language
   puts 'Supported' 
   if language.eql? 'java'
@@ -23,6 +28,10 @@ if supported.include? language
     end
     puts 'Enter the name of the method above:'
     methodname = gets
+    until valid_name?(methodname)
+      puts 'Enter the name of the method above:'
+      methodname = gets
+    end
     java = Java.new(classname, returntype, methodname)
     puts 'Here is the generated stub:'
     java.generate
@@ -32,6 +41,10 @@ if supported.include? language
     classname = gets
     puts 'Enter the name of a method:'
     methodname = gets
+    until valid_name?(methodname)
+      puts 'Enter the name of a method:'
+      methodname = gets
+    end
     python = Python.new(classname, methodname)
     puts 'Here is the generated stub:'
     python.generate
@@ -41,6 +54,10 @@ if supported.include? language
     classname = gets
     puts 'Enter the name of a method:'
     methodname = gets
+    until valid_name?(methodname)
+      puts 'Enter the name of a method:'
+      methodname = gets
+    end
     ruby = Ruby.new(classname, methodname)
     puts 'Here is the generated stub:'
     ruby.generate
