@@ -39,13 +39,16 @@ if supported.include? language
   if language.eql? 'python'
     puts 'Enter the name of the main class:'
     classname = gets
-    puts 'Enter the name of a method:'
-    methodname = gets
-    until valid_name?(methodname)
-      puts 'Enter the name of a method:'
-      methodname = gets
+    puts 'Enter a comma-separated list of method names:'
+    methodnames = gets.split(',')
+    methodnames_final = []
+    methodnames.each do |methodname|
+      methodname = methodname.strip()
+      if valid_name?(methodname)
+        methodnames_final.push(methodname)
+      end
     end
-    python = Python.new(classname, methodname)
+    python = Python.new(classname, methodnames_final)
     puts 'Here is the generated stub:'
     python.generate
   end

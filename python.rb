@@ -1,7 +1,7 @@
 class Python
-  def initialize(classname, methodname)
+  def initialize(classname, methodnames)
     @classname = classname.chomp
-    @methodname = methodname.chomp
+    @methodnames = methodnames
   end
 
   def generate
@@ -11,9 +11,11 @@ class Python
     puts "class #{@classname}(object):"
     puts "  def __init__(self, args):"
     puts "    # Do something"
-    puts
-    puts "  def #{@methodname}(self, args):"
-    puts '    # Do something'
+    @methodnames.each do |methodname|
+      puts
+      puts "  def #{methodname}(self, args):"
+      puts '    # Do something'
+    end
     puts
     puts 'if __name__ == "__main__"'
     puts '    # Do something'
