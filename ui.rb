@@ -3,6 +3,7 @@ require_relative 'java'
 require_relative 'cpp'
 require_relative 'ruby'
 require_relative 'utils'
+require_relative 'language_helpers'
 
 def valid_datatype(datatype)
   return ['int', 'double', 'float', 'string', 'String', 'bool', 'boolean', 'char'].include? datatype.chomp
