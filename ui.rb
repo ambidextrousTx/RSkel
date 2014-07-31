@@ -3,9 +3,6 @@ require_relative 'java'
 require_relative 'cpp'
 require_relative 'ruby'
 
-language = gets.chomp.downcase
-supported = ['ruby', 'java', 'python', 'c++']
-
 def valid_datatype(datatype)
   return ['int', 'double', 'float', 'string', 'String', 'bool', 'boolean', 'char'].include? datatype.chomp
 end
@@ -14,9 +11,13 @@ def valid_name?(name)
   return !(name.include? '*')
 end
 
+puts 'Which language do you want the stubs for?'
+language_name = gets.chomp
+language = language_name.downcase
+supported = ['ruby', 'java', 'python', 'c++']
 
-if supported.include? language
-  puts 'Supported' 
+if supported.include? language.downcase
+  puts "Ok, #{language_name} supported ..."
   if language.eql? 'java'
     puts 'Enter the name of the main class:'
     classname = gets
