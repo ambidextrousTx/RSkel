@@ -1,7 +1,7 @@
 class Ruby
-  def initialize(classname, methodname)
+  def initialize(classname, methodnames)
     @classname = classname.chomp
-    @methodname = methodname.chomp
+    @methodnames = methodnames
   end
 
   def generate
@@ -13,9 +13,11 @@ class Ruby
     puts "    # Do something"
     puts "  end"
     puts
-    puts "  def #{@methodname}(self, args)"
-    puts '    # Do something'
-    puts "  end"
+    @methodnames.each do |methodname|
+      puts "  def #{methodname}(args)"
+      puts '    # Do something'
+      puts "  end"
+    end
     puts "end"
     puts
     puts "myvar = #{@classname}.new"

@@ -5,14 +5,6 @@ require_relative 'ruby'
 require_relative 'utils'
 require_relative 'language_helpers'
 
-def valid_datatype(datatype)
-  return ['int', 'double', 'float', 'string', 'String', 'bool', 'boolean', 'char'].include? datatype.chomp
-end
-
-def valid_name?(name)
-  return !(name.include? '*')
-end
-
 puts 'Which language do you want the stubs for?'
 language_name = gets.chomp
 language = language_name.downcase
