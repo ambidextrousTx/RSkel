@@ -25,7 +25,7 @@ def process_python
   methodnames = gets.split(',')
   methodnames_final = []
   methodnames.each do |methodname|
-    methodname = methodname.strip()
+    methodname = methodname.strip
     if valid_name?(methodname)
       methodnames_final.push(methodname)
     end
@@ -42,12 +42,12 @@ def process_ruby
   methodnames = gets.split(',')
   methodnames_final = []
   methodnames.each do |methodname|
-    methodname = methodname.strip()
+    methodname = methodname.strip
     if valid_name?(methodname)
       methodnames_final.push(methodname)
     end
   end
-  ruby = Ruby.new(classname, methodnames)
+  ruby = Ruby.new(classname, methodnames_final)
   puts 'Here is the generated stub:'
   ruby.generate
 end
