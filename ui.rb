@@ -1,9 +1,9 @@
-require_relative 'python'
-require_relative 'java'
-require_relative 'cpp'
-require_relative 'ruby'
-require_relative 'utils'
-require_relative 'language_helpers'
+require_relative 'templates/python'
+require_relative 'templates/java'
+require_relative 'templates/cpp'
+require_relative 'templates/ruby'
+require_relative 'helpers/utils'
+require_relative 'helpers/language_helpers'
 
 puts 'Which language do you want the stubs for?'
 language_name = gets.chomp
